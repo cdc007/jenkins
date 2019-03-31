@@ -26,7 +26,7 @@ pipeline{
 					age = prop.AGE? prop.AGE.trim() : ""
 					println "Age:" + age
 					phone = prop.PHONE_NUMBER? prop.PHONE_NUMBER.trim() : ""
-					println "Phone:" + PHONE_NUMBER
+					println "Phone:" + phone
 					address = prop.ADDRESS? prop.ADDRESS.trim() : ""
 					println "Address:" + address
 					email = prop.EMAIL? prop.EMAIL.trim() : ""
