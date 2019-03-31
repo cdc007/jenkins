@@ -23,6 +23,18 @@ pipeline{
 					prop = readJSON file : json_file
 					name = prop.NAME? prop.NAME.trim() : ""
 					println "Name:" + name
+					age = prop.AGE? prop.AGE.trim() : ""
+					println "Age:" + age
+					phone = prop.PHONE_NUMBER? prop.PHONE_NUMBER.trim() : ""
+					println "Phone:" + PHONE_NUMBER
+					address = prop.ADDRESS? prop.ADDRESS.trim() : ""
+					println "Address:" + address
+					email = prop.EMAIL? prop.EMAIL.trim() : ""
+					println "Email:" + email
+					gender = prop.GENDER? prop.GENDER.trim() : ""
+					println "Gender:" + gender
+					is_marry = prop.IS_MARRY? prop.IS_MARRY.trim() : false
+					println "is_marry:" + is_marry
 				}
 			}
 		}
