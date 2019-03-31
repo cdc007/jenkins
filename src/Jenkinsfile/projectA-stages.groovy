@@ -14,6 +14,18 @@ pipeline{
 				}
 			}
 		}
+		
+		stage("Init paramters in json") {
+			steps {
+			    script {
+					println "read josn input file"
+					json_file = INPUT_JSON? INPUT_JSON.trim() : ""
+					prop = readJSON file : json_file
+					name = prop.NAME? prop.NAME.trim() : ""
+					println "Name:" + name
+				}
+			}
+		}
 	}
 
 }
