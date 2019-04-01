@@ -42,7 +42,7 @@ pipeline{
 			steps {
 			    script {
 					println "send the parameter as map type"
-					model_call = load "/groovy/projectA-model.groovy"
+					model_call = load env.WORKSPACE + "/groovy/projectA-model.groovy"
 					model_call.getUserInfo(name:name, age:age, phone:phone, address:address, email:email, gender:gender, is_marry:is_marry)
 				}
 			}
