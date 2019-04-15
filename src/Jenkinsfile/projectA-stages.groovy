@@ -35,6 +35,7 @@ pipeline{
 					println "Gender:" + gender
 					is_marry = prop.IS_MARRY? prop.IS_MARRY.trim() : false
 					println "is_marry:" + is_marry
+					is_smoke = prop.SMOKE? prop.SMOKE.trim() : false
 				}
 			}
 		}
@@ -44,6 +45,56 @@ pipeline{
 					println "send the parameter as map type"
 					model_call = load env.WORKSPACE + "/groovy/projectA-model.groovy"
 					model_call.getUserInfo(name:name, age:age, phone:phone, address:address, email:email, gender:gender, is_marry:is_marry)
+				}
+			}
+		}
+		stage("check serive up") {
+		    when {
+		        expression {
+		            return (is_smoke == true)
+		        }
+		    }
+		    steps {
+			    script {
+					println "SMOKE TEST: check service startup"
+				}
+			}
+		}
+        stage("check UI login") {
+	        when {
+			    expression {
+			        return (is_smoke == true)
+			    }
+			}
+		    steps {
+			    script {
+					println "SMOKE TEST: check UI login success"
+				}
+			}
+		}
+		
+		stage("Integrate-ModelA") {
+	        when {
+			    expression {
+			        return (is_smoke == false)
+			    }
+			}
+		    steps {
+			    script {
+					println "Integrate-ModelA"
+				}
+			}
+		}
+		
+		stage("Integrate-ModelB") {
+	        when {
+			    expression {
+			        return (is_smoke == false)
+			    }
+			}
+		    steps {
+			    script {
+					println "Integrate-ModelB"
 				}
 			}
 		}
