@@ -33,9 +33,10 @@ pipeline{
 					println "Email:" + email
 					gender = prop.GENDER? prop.GENDER.trim() : ""
 					println "Gender:" + gender
-					is_marry = prop.IS_MARRY? prop.IS_MARRY.trim() : false
+					is_marry = prop.IS_MARRY? prop.IS_MARRY : false
 					println "is_marry:" + is_marry
-					is_smoke = prop.SMOKE? prop.SMOKE.trim() : false
+					is_smoke = prop.SMOKE? prop.SMOKE : false
+					println "is_smoke:" + is_smoke
 				}
 			}
 		}
