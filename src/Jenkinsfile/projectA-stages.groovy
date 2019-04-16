@@ -101,6 +101,28 @@ pipeline{
 			}
 		}
 	}
+	
+	post {
+	    always {
+	        script {
+	            println "Do some actins when always need."
+	        }
+	    }
+	    failure {
+	        script {
+	            println "Do some actins when build failed."
+	        }
+	    }
+        success {
+	        script {
+	            println "Here we kickoff run job B"
+	            jobB = build job: 'ProjectB-pipeline-demo', propagate: false, wait: true, parameters {
+	                       string(name:'INPUT_JSON', value: '${json_file}')                                                                    
+	                   }
+	        }
+	    }
+	}
+
 
 }
 
