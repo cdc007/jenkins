@@ -105,7 +105,8 @@ pipeline{
 		    steps {
 			    script {
 					println "Here test jenkins share lib method"
-				    TwoNumberAdd 3,5
+				    result = TwoNumberAdd 3,5
+				    println result
 				}
 			}
 		}
