@@ -1,7 +1,7 @@
 node{
 
     stage('SCM'){
-        echo 'gather git change'
+        echo 'gather git change......'
     }
 
     stage('Build'){
